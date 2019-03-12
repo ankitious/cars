@@ -20,7 +20,7 @@ export const FilterButton = styled.div`
     padding: 4% 2%;
     width: 40%;
     float: right;
-    margin-right: 8%;
     margin-top: 5%;
     text-align: center;
+    cursor: pointer;
 `;

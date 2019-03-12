@@ -1,5 +1,5 @@
 import React  from 'react';
-import {CarContainer, CarHeader, CarImage, CarImageContainer, CarInformation} from "./style";
+import {CarContainer, CarHeader, CarImage, CarImageContainer, CarInformation, DetailsLink} from "./style";
 
 const Car = ({stockNumber,
                  modelName,
@@ -20,7 +20,7 @@ const Car = ({stockNumber,
         <CarInformation>
             <CarHeader>{manufacturerName +  ' '+  modelName}</CarHeader>
             <div> Stock # {stockNumber} - { number + ' '+ unit} - {fuelType} - {color}  </div>
-            <a href=""> View details</a>
+            <DetailsLink to={"car/" + modelName+" " + stockNumber}> View details</DetailsLink>
         </CarInformation>
 
     </CarContainer>;

@@ -18,7 +18,7 @@ export const LogoImage = styled.img`
 
 export const HeaderButtonsContainer = styled.div`
     display : flex;
-    width: 25%;
+    width: 21%;
     font-size: 18px;
     color : gray;
 `;

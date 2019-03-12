@@ -1,4 +1,5 @@
 import styled from "styled-components";
+import {Link} from "react-router-dom";
 export const CarContainer = styled.div`
    display : flex;
    align-items : center;
@@ -24,4 +25,8 @@ export const CarInformation = styled.div`
 export const CarImageContainer = styled.div`
     padding: 5px;
     margin-right: 5px;
+`;
+export const DetailsLink = styled(Link)`
+    text-decoration : none;
+    color : #ec7f12;
 `;

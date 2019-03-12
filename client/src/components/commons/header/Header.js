@@ -6,7 +6,8 @@ import {
     LogoImage,
     LogoImageContainer,
     MyOrdersButton,
-    PurchaseButton, SellButton
+    PurchaseButton,
+    SellButton
 } from "./style";
 
 const Header = () =>

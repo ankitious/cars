@@ -9,7 +9,7 @@ export const Select = styled.div`
     display: flex;
     justify-content: space-between;
     padding: 2%;
-    width: 88%;
+    width: 95%;
     border: 1px solid #d3d3d3;
     align-items : center;
 `;
@@ -30,7 +30,7 @@ export const OptionsContainer = styled.div`
     position: absolute;
     border: 1px solid #d3d3d3;
     border-top: none;
-    width: 104%;
+    width: 99%;
     box-shadow: 0 4px 8px 0 rgba(0,0,0,0.10);
     z-index: 1000;
 `;

@@ -32,6 +32,7 @@ class Dropdown extends React.Component {
 
     onSelect(e) {
         this.setState({ selectedItem : e.target.textContent});
+        this.props.selection(e.target.textContent);
         this.onToggle();
     }
 
