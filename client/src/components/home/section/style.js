@@ -1,7 +1,7 @@
 import styled from "styled-components";
 
 export const SectionContainer = styled.div`
- width : 70%;
+ width : 66%;
  margin: 0px 20px;
 `;
 

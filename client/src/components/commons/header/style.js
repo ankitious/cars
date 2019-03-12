@@ -4,7 +4,7 @@ export const HeaderContainer = styled.div`
    justify-content : space-between;
    align-items: center;
    padding : 1% 0%;
-   border-bottom : 1px solid lightgray;
+   border-bottom : 1px solid #d3d3d3;
 `;
 
 export const LogoImageContainer = styled.div`

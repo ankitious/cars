@@ -1,11 +1,11 @@
 import React from 'react';
 import {
     FilterByColorContainer,
-    FiltersContainer, FilterByManufactuersContainer,
+    FiltersContainer, FilterByManufactuersContainer, FilterButton,
 } from "./style";
-import Dropdown from "../commons/dropdown/Dropdown";
-import {colors} from "../../constants/colors";
-import {manufacturers} from "../../constants/manufacturers";
+import Dropdown from "../../commons/dropdown/Dropdown";
+import {colors} from "../../../constants/colors";
+import {manufacturers} from "../../../constants/manufacturers";
 
 const Filters = () =>
     <FiltersContainer>
@@ -24,6 +24,8 @@ const Filters = () =>
                 placeholder={"All manufacturers"}
             />
         </FilterByManufactuersContainer>
+
+        <FilterButton> Filter</FilterButton>
     </FiltersContainer>;
 
 export default Filters;

@@ -39,7 +39,7 @@ class Dropdown extends React.Component {
           const { name, list, placeholder } = this.props;
           const { isOpen, selectedItem } = this.state;
           return (
-                <div ref={node => this.node = node}>
+                <div ref={node => this.node = node} style={{margin: "10px 0px"}}>
                         <div>{name}</div>
                         <DropdownContainer>
                           <Select
@@ -47,8 +47,14 @@ class Dropdown extends React.Component {
                           >
                               {!!selectedItem ? selectedItem : placeholder}
                               { isOpen ?
-                                  <img src={sortUp} style={{opacity: '0.5'}}/>:
-                                  <img src={sortDown} style={{opacity: '0.5'}}/>
+                                  <img src={sortUp}
+                                       style={{opacity: '0.5'}}
+                                       alt={"sort up icon"}
+                                  />:
+                                  <img src={sortDown}
+                                       style={{opacity: '0.5'}}
+                                       alt={"sort down icon"}
+                                  />
                               }
                           </Select>
                             {   isOpen &&

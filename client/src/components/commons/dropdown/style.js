@@ -8,14 +8,14 @@ export const DropdownContainer = styled.div`
 export const Select = styled.div`
     display: flex;
     justify-content: space-between;
-    padding: 3% 2%;
-    width: 100%;
-    border: 1px solid lightgray;
+    padding: 2%;
+    width: 88%;
+    border: 1px solid #d3d3d3;
     align-items : center;
 `;
 
 export const Option = styled.div`
-    border-bottom : 1px solid lightgray;
+    border-bottom : 1px solid #d3d3d3;
     padding: 3% 2%;
     
     &:hover {
@@ -28,7 +28,7 @@ export const OptionsContainer = styled.div`
     background-color: #ffffff;
     overflow: hidden;
     position: absolute;
-    border: 1px solid lightgray;
+    border: 1px solid #d3d3d3;
     border-top: none;
     width: 104%;
     box-shadow: 0 4px 8px 0 rgba(0,0,0,0.10);
