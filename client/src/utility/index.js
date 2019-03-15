@@ -1,3 +1,5 @@
+import {head, join, juxt, tail, toUpper, compose} from "ramda";
+
 export function haveValues(target) {
     return !!Object.values(target).find(v => v !== null);
 }
@@ -12,3 +14,8 @@ export function removeNulls(obj) {
     }
     return newObj;
 }
+
+export const capitalize = compose(
+    join(''),
+    juxt([compose(toUpper, head), tail])
+);

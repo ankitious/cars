@@ -1,10 +1,11 @@
 import styled from "styled-components";
 export const FiltersContainer = styled.div`
     width: 25%;
-    height: 225px;
-    margin: 2%;
-    padding: 2%;
-    border: 1px solid #d3d3d3;
+    height: 210px;
+    margin: 24px;
+    padding: 24px;
+    border: 1px solid #EDEDED;
+    font-size : 14px;
 `;
 
 export const FilterByColorContainer = styled.div`
@@ -14,13 +15,19 @@ export const FilterByColorContainer = styled.div`
 export const FilterByManufactuersContainer = styled.div``;
 
 export const FilterButton = styled.div`
-    background-color: #ec7f12;
+    background-color: #ea7f38;
     color: #fff;
-    font-weight: bold;
-    padding: 4% 2%;
-    width: 40%;
+    width: 128px;
+    align-items : center;
+    justify-content : center;
+    height : 32px;
+    display : flex;
     float: right;
     margin-top: 5%;
-    text-align: center;
     cursor: pointer;
+    padding: 0px 8px;
+    
+    &:active {
+      background-color : #D37324;
+    }
 `;

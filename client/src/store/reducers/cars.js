@@ -19,7 +19,8 @@ export default (state = initialState, action) => {
         case FETCH_CARS_SUCCESS:
             return evolve({
                 fetching : always(false),
-                cars : always(cars)
+                cars : always(cars),
+                error : always(null)
             },
                 state
             );

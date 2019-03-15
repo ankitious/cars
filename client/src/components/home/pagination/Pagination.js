@@ -1,7 +1,7 @@
 import React from 'react';
 import {connect} from "react-redux";
 import {isEmpty, prop} from "ramda";
-import {changePage} from "../../../actions";
+import {changePage} from "../../../store/actions";
 import {PaginationContainer, PaginationItem} from "./style";
 
 const totalPageCountProp = prop('totalPageCount');
@@ -12,54 +12,50 @@ class Pagination extends React.Component {
         this.state = {
             currentPage: 1,
             carsPerPage: 10,
-            fetchedCarsData : props.fetchedCarsData,
         };
-       this.nextPage = this.nextPage.bind(this);
-       this.previousPage = this.previousPage.bind(this);
-       this.firstPage = this.firstPage.bind(this);
-       this.lastPage = this.lastPage.bind(this);
     }
 
-    firstPage() {
+    componentWillReceiveProps(nextProps){
+        const { cars : { totalPageCount }  } = nextProps;
+        if(totalPageCount < this.state.currentPage){
+            this.setState({currentPage: 1 });
+        }
+    }
+
+    firstPage = () => {
         const { currentPage } = this.state;
         const { changePage } = this.props;
         if(currentPage !== 1 ) {
             changePage(1);
             this.setState( {currentPage : 1});
         }
+    };
 
-    }
-
-    lastPage() {
+    lastPage = () => {
         const { currentPage } = this.state;
-        const { changePage } = this.props;
-        if(currentPage !== 1 ) {
-            changePage(1);
-            this.setState( {currentPage : 1});
+        const { changePage, cars } = this.props;
+        if(currentPage !== totalPageCountProp(cars) ) {
+            changePage(totalPageCountProp(cars));
+            this.setState( {currentPage : totalPageCountProp(cars)});
         }
+    };
+    nextPage = () => {
+        const { currentPage } = this.state;
+        const { changePage, cars  } = this.props;
+        if(!isEmpty(cars) && Math.ceil(totalPageCountProp(cars)) > currentPage) {
+            changePage(currentPage + 1);
+            this.setState( {currentPage : currentPage + 1});
+        }
+    };
 
-    }
-    nextPage() {
-            const { currentPage, fetchedCarsData } = this.state;
-            const { changePage } = this.props;
-            if(!isEmpty(fetchedCarsData)) {
-                console.log(Math.ceil(totalPageCountProp(fetchedCarsData)) > currentPage);
-                console.log(fetchedCarsData);
-                console.log(currentPage);
-                console.log('hey')
-            }
-                changePage(currentPage + 1);
-                this.setState( {currentPage : currentPage + 1});
-    }
-
-    previousPage() {
+    previousPage = () => {
         const { currentPage } = this.state;
         const { changePage } = this.props;
         if(currentPage > 1 ) {
             changePage(currentPage - 1);
             this.setState( {currentPage : currentPage - 1});
         }
-    }
+    };
 
     render() {
         const { cars : fetchedCarsData } = this.props;

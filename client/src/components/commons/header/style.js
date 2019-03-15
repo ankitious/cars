@@ -1,15 +1,18 @@
 import styled from "styled-components";
+import Link from "react-router-dom/es/Link";
 export const HeaderContainer = styled.div`
    display : flex;
    justify-content : space-between;
    align-items: center;
-   padding : 1% 0%;
-   border-bottom : 1px solid #d3d3d3;
+   padding : 12px 8px;
+   border-bottom : 1px solid #EDEDED;
+   box-sizing: border-box;
+   height: 80px;
+   font-size: 14px;
 `;
 
-export const LogoImageContainer = styled.div`
-   margin: 1% 2%;
-
+export const LogoImageContainer = styled(Link)`
+    margin: 12px 24px;
 `;
 
 export const LogoImage = styled.img`
@@ -18,17 +21,15 @@ export const LogoImage = styled.img`
 
 export const HeaderButtonsContainer = styled.div`
     display : flex;
-    width: 21%;
-    font-size: 18px;
-    color : gray;
+    color : #4a4a4a;
 `;
 
 export const PurchaseButton = styled.div`
-   margin: 0% 5%;
+   margin: 0px 12px;
    cursor : pointer;
    
    &:hover {
-     color : #000;
+     color : #4A4A4A;
    }
 `;
 

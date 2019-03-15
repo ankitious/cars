@@ -7,9 +7,6 @@ class Dropdown extends React.Component {
     constructor() {
         super();
         this.state = { isOpen: false, selectedItem : '' };
-        this.onToggle = this.onToggle.bind(this);
-        this.handleDocumentClick = this.handleDocumentClick.bind(this);
-        this.onSelect = this.onSelect.bind(this);
     }
 
     componentWillMount() {
@@ -20,17 +17,17 @@ class Dropdown extends React.Component {
         document.removeEventListener('mousedown', this.handleDocumentClick, false);
     }
 
-    onToggle() {
+    onToggle = () => {
         this.setState({ isOpen: !this.state.isOpen });
     }
 
-    handleDocumentClick(e) {
+    handleDocumentClick = (e) => {
         if (!this.node.contains(e.target)) {
             this.setState({isOpen: false});
         }
     }
 
-    onSelect(e) {
+    onSelect = (e) => {
         this.setState({ selectedItem : e.target.textContent});
         this.props.selection(e.target.textContent);
         this.onToggle();
@@ -40,8 +37,8 @@ class Dropdown extends React.Component {
           const { name, list, placeholder } = this.props;
           const { isOpen, selectedItem } = this.state;
           return (
-                <div ref={node => this.node = node} style={{margin: "10px 0px"}}>
-                        <div>{name}</div>
+                <div ref={node => this.node = node} style={{margin: "8px 0px"}}>
+                        <div style={{ fontSize : '12px'}}>{name}</div>
                         <DropdownContainer>
                           <Select
                               onClick={this.onToggle}

@@ -1,17 +1,24 @@
 import { takeLatest, call, put, fork, select } from 'redux-saga/effects';
-import { fetchCarsSuccess, fetchCarsFailure } from '../actions';
+import {fetchCarsSuccess, fetchCarsFailure, fetchCarSuccess, fetchCarFailure} from '../store/actions';
 import { fetchCars } from '../api/fetchCars';
-import {CHANGE_PAGE, FETCH_CARS_REQUEST, FILTER_CARS_BY_PARAMS} from '../actions/constants';
+import {
+    CHANGE_PAGE,
+    FETCH_CAR_DETAIL_REQUEST,
+    FETCH_CARS_REQUEST,
+    FILTER_CARS_BY_PARAMS,
+    SORT_BY_MILEAGE
+} from '../store/actions/constants';
 import * as queryString from "query-string";
 import {compose} from "ramda";
 import {haveValues, removeNulls} from "../utility";
+import {fetchCar} from "../api/fetchCar";
 
-const getParams = (state) => state.filterParams;
+const getParams = (state) => { console.log(state); return state.filterParams };
 
 const sanitizeParams = (params) => {
     return(
         haveValues(params) ?
-           compose(queryString.stringify,removeNulls)(params) : undefined);
+           compose(queryString.stringify,removeNulls)(params) : "");
 };
 
 export function* getCars() {
@@ -25,19 +32,26 @@ export function* getCars() {
     }
 }
 
-function* watchGetCars() {
-    yield takeLatest(FETCH_CARS_REQUEST, getCars);
+export function* getCar({stockNumber}) {
+    try {
+        const response = yield call(fetchCar, stockNumber);
+        yield put(fetchCarSuccess(response.data));
+    } catch(err) {
+        yield put(fetchCarFailure(err));
+    }
 }
 
-function* watchFilterByParams() {
+function* watchGetCars() {
+    yield takeLatest(FETCH_CARS_REQUEST, getCars);
     yield takeLatest(FILTER_CARS_BY_PARAMS, getCars);
-}
-function* watchChangePage() {
     yield takeLatest(CHANGE_PAGE, getCars);
+    yield takeLatest(SORT_BY_MILEAGE, getCars);
+}
+function* watchGetCar() {
+    yield takeLatest(FETCH_CAR_DETAIL_REQUEST, getCar);
 }
 
 export default function* rootSaga() {
     yield fork(watchGetCars);
-    yield fork(watchFilterByParams);
-    yield fork(watchChangePage);
+    yield fork(watchGetCar);
 }

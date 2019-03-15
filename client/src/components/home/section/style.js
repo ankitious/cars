@@ -13,6 +13,7 @@ export const SectionHeader = styled.div`
     
     display : flex;
     justify-content : space-between;
-    align-items : center;
+    align-items : baseline;
+    padding-bottom: 24px;
 
 `;

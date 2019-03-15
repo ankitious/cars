@@ -1,7 +1,9 @@
 import React  from 'react';
 import {CarContainer, CarHeader, CarImage, CarImageContainer, CarInformation, DetailsLink} from "./style";
+import {capitalize} from "../../../utility";
 
-const Car = ({stockNumber,
+const Car = ({
+                 stockNumber,
                  modelName,
                  manufacturerName,
                  color,
@@ -19,8 +21,14 @@ const Car = ({stockNumber,
         </CarImageContainer>
         <CarInformation>
             <CarHeader>{manufacturerName +  ' '+  modelName}</CarHeader>
-            <div> Stock # {stockNumber} - { number + ' '+ unit} - {fuelType} - {color}  </div>
-            <DetailsLink to={"car/" + modelName+" " + stockNumber}> View details</DetailsLink>
+            <div style={{fontSize : '14px'}}> Stock # {stockNumber} - { number + ' '+ unit.toUpperCase()} - {fuelType} - {capitalize(color)}  </div>
+            <DetailsLink
+                to={"car/" + stockNumber}
+                state = {
+                    stockNumber
+                }
+            > View details
+            </DetailsLink>
         </CarInformation>
 
     </CarContainer>;

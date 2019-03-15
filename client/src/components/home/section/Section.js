@@ -1,11 +1,12 @@
 import React from 'react';
 import {SectionBody, SectionContainer, SectionHeader} from "./style";
 import Dropdown from "../../commons/dropdown/Dropdown";
-import {colors} from "../../../constants/colors";
 import {map, isEmpty, prop, compose, gt, length, always, ifElse, __, multiply} from 'ramda';
 import {connect} from "react-redux";
 import Car from "../car/Car";
 import Pagination from "../pagination/Pagination";
+import {sort} from "../../../utility/constants/sortByMileage";
+import {sortByMileage} from "../../../store/actions";
 
 const CarList = map(Car);
 const carsProp = prop('cars');
@@ -25,22 +26,32 @@ const totalCars = ifElse(
     compose(length,carsProp)
 );
 
+const updateSortValue = v => ({
+    "Mileage - Ascending" : "asc",
+    "Mileage - Descending" : "des",
+}[v]);
+
 class Section extends React.Component {
 
+    sortSelection(v) {
+        const { sortByMileage } = this.props;
+        compose(sortByMileage, updateSortValue)(v);
+    }
     render() {
         const { cars : fetchedCarsData } = this.props;
         return(
             <SectionContainer>
                 <SectionHeader>
                     <div>
-                        <h2> Available Cars </h2>
-                        <h4> Showing {numberOfCarsOnPage(fetchedCarsData)} of {totalCars(fetchedCarsData)} results </h4>
+                        <h2 style={{ fontSize : '18px'}}> Available Cars </h2>
+                        <div style={{ fontSize : '18px'}}> Showing {numberOfCarsOnPage(fetchedCarsData)} of {totalCars(fetchedCarsData)} results </div>
                     </div>
-                    <div style={{width: '25%'}}>
+                    <div style={{width: '40%', fontSize : '14px'}}>
                         <Dropdown
-                            list={colors}
+                            list={sort}
                             name={"Sort By"}
                             placeholder={"None"}
+                            selection={this.sortSelection.bind(this)}
                         />
                     </div>
                 </SectionHeader>
@@ -70,4 +81,6 @@ export const mapStateToProps = state => {
     };
 };
 
-export default connect(mapStateToProps)(Section);
+export const mapDispatchToProps = { sortByMileage };
+
+export default connect(mapStateToProps, mapDispatchToProps)(Section);

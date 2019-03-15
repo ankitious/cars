@@ -4,9 +4,9 @@ import {
     FiltersContainer, FilterByManufactuersContainer, FilterButton,
 } from "./style";
 import Dropdown from "../../commons/dropdown/Dropdown";
-import {colors} from "../../../constants/colors";
-import {manufacturers} from "../../../constants/manufacturers";
-import { filterCarsByParams } from "../../../actions";
+import {colors} from "../../../utility/constants/colors";
+import {manufacturers} from "../../../utility/constants/manufacturers";
+import { filterCarsByParams } from "../../../store/actions";
 import {connect} from "react-redux";
 
 class Filters extends React.Component {
@@ -17,24 +17,21 @@ class Filters extends React.Component {
             color : null,
             manufacturer : null
         };
-        this.filterCars = this.filterCars.bind(this);
-        this.colorSelection = this.colorSelection.bind(this);
-        this.manufacturerSelection = this.manufacturerSelection.bind(this);
     }
 
-    colorSelection(color) {
+    colorSelection = (color) => {
         this.setState({color});
-    }
+    };
 
-    manufacturerSelection(manufacturer) {
+    manufacturerSelection = (manufacturer) => {
         this.setState({manufacturer});
-    }
+    };
 
-    filterCars() {
+    filterCars = () => {
        const { filterCarsByParams } = this.props;
        const { color, manufacturer } = this.state;
        filterCarsByParams(color, manufacturer);
-    }
+    };
 
     render() {
         return(
@@ -42,7 +39,7 @@ class Filters extends React.Component {
                 <FilterByColorContainer>
                     <Dropdown
                         list={colors}
-                        name={"Colors"}
+                        name={"Color"}
                         placeholder={"All Car Colors"}
                         selection={this.colorSelection}
                     />

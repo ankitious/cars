@@ -3,10 +3,12 @@ import styled from "styled-components";
 export const PaginationContainer = styled.div`
   display : flex;
   justify-content: center;
+  align-items : center;
+  font-size: 14px;
 `;
 
 export const PaginationItem = styled.div`
-  padding : 5px 10px;
-  margin : 0px 10px;
-  color : ${props => !!props.pageNoText ? '#000' : '#ec7f12' };
+  padding : 8px 12px;
+  margin : 0px 12px;
+  color : ${props => !!props.pageNoText ? '#4A4A4A' : '#EA7F38' };
 `;

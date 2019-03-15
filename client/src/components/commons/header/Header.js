@@ -12,7 +12,7 @@ import {
 
 const Header = () =>
     <HeaderContainer>
-        <LogoImageContainer>
+        <LogoImageContainer to="/">
             <LogoImage src={logo} />
         </LogoImageContainer>
         <HeaderButtonsContainer>
