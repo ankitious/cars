@@ -4,11 +4,12 @@
   "description": "Mock server for cars listing and filtering",
   "main": "server/index.js",
   "scripts": {
-    "install" : "cd client && yarn",
-    "test" : "cd client && yarn test",
+    "install": "cd client && yarn",
+    "test": "cd client && yarn test",
     "client": "cd client && yarn start",
-    "build" : "cd client && yarn build",
-    "start": "nodemon server/index.js",
+    "build": "cd client && yarn build",
+    "start": "node server/index.js",
+    "heroku-postbuild": "cd client && yarn && yarn --only=dev --no-shrinkwrap && yarn build",
     "dev": "concurrently --kill-others-on-fail \"yarn server\" \"yarn client\""
   },
   "keywords": [],
@@ -33,6 +34,7 @@
     "swagger-ui-express": "^4.0.1"
   },
   "devDependencies": {
-    "concurrently": "^4.0.1"
+    "concurrently": "^4.0.1",
+    "nodemon": "^1.18.10"
   }
 }
