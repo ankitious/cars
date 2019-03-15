@@ -1,7 +1,7 @@
 
 # Frontend React Test
 
-This is AUto1's cars and car detail page's light version.
+This is Auto1's cars and car detail page's light version.
 
 It is built on the top of create-react-app.
 
