@@ -4,7 +4,6 @@ import {
     HeaderButtonsContainer,
     HeaderContainer,
     LogoImage,
-    LogoImageContainer,
     MyOrdersButton,
     PurchaseButton,
     SellButton

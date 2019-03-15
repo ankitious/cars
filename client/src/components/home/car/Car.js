@@ -8,14 +8,13 @@ const Car = ({
                  manufacturerName,
                  color,
                  mileage : { number , unit},
-                 fuelType,
-                 pictureUrl
+                 fuelType
        }) =>
     <CarContainer
         key={modelName + ' ' + stockNumber}>
         <CarImageContainer>
             <CarImage
-                src={pictureUrl}
+                src={'/car.svg'}
                 alt={manufacturerName +  ' '+  modelName}
             />
         </CarImageContainer>
