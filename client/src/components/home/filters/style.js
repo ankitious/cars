@@ -6,9 +6,11 @@ export const FiltersContainer = styled.div`
     padding: 24px;
     border: 1px solid #EDEDED;
     font-size : 14px;
-    
-     @media (max-width: 700px) {
-         width : 82%;
+   
+   @media (max-width: 700px) {
+             margin: 12px;
+             padding: 12px;
+             width : 85%;
    }
 `;
 
