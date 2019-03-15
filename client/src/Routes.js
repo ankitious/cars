@@ -7,7 +7,7 @@ import React from "react";
 const Routes = () =>
     <Switch>
     <Route exact path="/" component={Home} />
-    <Route path="/cars/:id" component={Detail} />
+    <Route path="/car/:id" component={Detail} />
     <Route component={Page404} />
 </Switch>;
 

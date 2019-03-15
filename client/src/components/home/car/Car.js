@@ -23,7 +23,7 @@ const Car = ({
             <CarHeader>{manufacturerName +  ' '+  modelName}</CarHeader>
             <div style={{fontSize : '14px'}}> Stock # {stockNumber} - { number + ' '+ unit.toUpperCase()} - {fuelType} - {capitalize(color)}  </div>
             <DetailsLink
-                to={"cars/" + stockNumber}
+                to={"car/" + stockNumber}
                 state = {
                     stockNumber
                 }

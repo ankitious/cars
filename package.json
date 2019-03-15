@@ -4,8 +4,11 @@
   "description": "Mock server for cars listing and filtering",
   "main": "server/index.js",
   "scripts": {
+    "install" : "cd client && yarn",
+    "test" : "cd client && yarn test",
     "client": "cd client && yarn start",
-    "server": "nodemon server/index.js",
+    "build" : "cd client && yarn build",
+    "start": "nodemon server/index.js",
     "dev": "concurrently --kill-others-on-fail \"yarn server\" \"yarn client\""
   },
   "keywords": [],

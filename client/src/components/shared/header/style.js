@@ -13,6 +13,7 @@ export const HeaderContainer = styled.div`
 
 export const LogoImage = styled.img`
     width: 60%;
+    min-width: 60px;
 `;
 
 export const HeaderButtonsContainer = styled.div`
@@ -26,6 +27,10 @@ export const PurchaseButton = styled.div`
    
    &:hover {
      color : #4A4A4A;
+   }
+   
+   @media (max-width: 400px) {
+         margin : 0px 2px;
    }
 `;
 

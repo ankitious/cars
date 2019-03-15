@@ -6,6 +6,10 @@ export const FiltersContainer = styled.div`
     padding: 24px;
     border: 1px solid #EDEDED;
     font-size : 14px;
+    
+     @media (max-width: 700px) {
+         width : 82%;
+   }
 `;
 
 export const FilterByColorContainer = styled.div`
