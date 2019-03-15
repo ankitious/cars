@@ -1,4 +1,3 @@
-import {always, evolve} from 'ramda';
 import {CHANGE_PAGE, FILTER_CARS_BY_PARAMS, SORT_BY_MILEAGE} from "../actions/constants";
 
 const initialState = {
@@ -12,25 +11,11 @@ export default (state = initialState, action) => {
     const { type, color, manufacturer, page, sort } = action;
     switch (type) {
         case FILTER_CARS_BY_PARAMS:
-            return evolve({
-                    color : always(color),
-                    manufacturer : always(manufacturer),
-                    page : always(null),
-                },
-                state
-            );
+            return { ...state, color , manufacturer, page : null };
         case CHANGE_PAGE:
-            return evolve({
-                    page : always(page),
-                },
-                state
-            );
+            return { ...state, page };
         case SORT_BY_MILEAGE:
-            return evolve({
-                    sort : always(sort),
-                },
-                state
-            );
+            return { ...state, sort };
         default:
             return state;
     }

@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import Link from "react-router-dom/es/Link";
+
 export const HeaderContainer = styled.div`
    display : flex;
    justify-content : space-between;
@@ -9,10 +9,6 @@ export const HeaderContainer = styled.div`
    box-sizing: border-box;
    height: 80px;
    font-size: 14px;
-`;
-
-export const LogoImageContainer = styled(Link)`
-    margin: 12px 24px;
 `;
 
 export const LogoImage = styled.img`

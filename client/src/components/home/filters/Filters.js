@@ -3,7 +3,7 @@ import {
     FilterByColorContainer,
     FiltersContainer, FilterByManufactuersContainer, FilterButton,
 } from "./style";
-import Dropdown from "../../commons/dropdown/Dropdown";
+import Dropdown from "../../shared/dropdown/Dropdown";
 import {colors} from "../../../utility/constants/colors";
 import {manufacturers} from "../../../utility/constants/manufacturers";
 import { filterCarsByParams } from "../../../store/actions";

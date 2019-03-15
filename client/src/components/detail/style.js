@@ -61,16 +61,20 @@ export const CarImageContainer = styled.div`
 `;
 
 export const SaveButton = styled.div`
-    padding: 4px 24px;
     margin: 12px 0px;
     color: #ffffff;
     background-color: #EA7F28;
     cursor: pointer;
-    text-align: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    /* text-align: center; */
     border-radius: 2px;
-    width: 55px;
-    box-sizing: content-box;
+    width: 128px;
+    height: 32px;
       &:active {
     background-color : #D37324;
     }
 `;
+
+export const RemoveButton = styled(SaveButton)``;

@@ -19,19 +19,19 @@ class Dropdown extends React.Component {
 
     onToggle = () => {
         this.setState({ isOpen: !this.state.isOpen });
-    }
+    };
 
     handleDocumentClick = (e) => {
         if (!this.node.contains(e.target)) {
             this.setState({isOpen: false});
         }
-    }
+    };
 
     onSelect = (e) => {
         this.setState({ selectedItem : e.target.textContent});
         this.props.selection(e.target.textContent);
         this.onToggle();
-    }
+    };
 
     render() {
           const { name, list, placeholder } = this.props;

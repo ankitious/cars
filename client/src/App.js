@@ -1,14 +1,12 @@
 import React, { Component } from 'react';
 import '../node_modules/normalize.css/normalize.css';
-import Header from "./components/commons/header/Header";
+import Header from "./components/shared/header/Header";
 import {fetchCars} from "./store/actions";
 import {connect} from "react-redux";
-import Home from "./components/home/Home";
 import { BrowserRouter as Router } from 'react-router-dom';
-import {Route, Switch} from "react-router-dom";
-import Detail from "./components/detail/Details";
-import Page404 from "./components/page404/Page404";
 import {Container} from "./style";
+import Routes from "./Routes";
+import Footer from "./components/shared/footer/Footer";
 class App extends Component {
 
     componentDidMount(){
@@ -19,12 +17,8 @@ class App extends Component {
             <Router>
                 <Container>
                     <Header/>
-                    <Switch>
-                        <Route exact path="/" component={Home} />
-                        <Route path="/car/:id" component={Detail} />
-                        <Route component={Page404} />
-                    </Switch>
-                    {/*<Footer />*/}
+                    <Routes/>
+                    <Footer />
                 </Container>
             </Router>
         );

@@ -1,6 +1,5 @@
 import React  from 'react';
 import logo from '../../assets/images/logo.png';
-import {Link} from "react-router-dom";
 import {LinkToHomePage, Page404Container} from "./style";
 
 const Page404 = () =>
@@ -10,7 +9,9 @@ const Page404 = () =>
       <div>Sorry, the page you are looking for does not exist.</div>
       <div>
           You can always go back to the
-              <LinkToHomePage to="/"> homepage</LinkToHomePage>.
+          <LinkToHomePage to="/">
+              homepage
+          </LinkToHomePage>.
       </div>
     </Page404Container>;
 

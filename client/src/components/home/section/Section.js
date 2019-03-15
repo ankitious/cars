@@ -1,6 +1,6 @@
 import React from 'react';
 import {SectionBody, SectionContainer, SectionHeader} from "./style";
-import Dropdown from "../../commons/dropdown/Dropdown";
+import Dropdown from "../../shared/dropdown/Dropdown";
 import {map, isEmpty, prop, compose, gt, length, always, ifElse, __, multiply} from 'ramda';
 import {connect} from "react-redux";
 import Car from "../car/Car";
@@ -63,7 +63,6 @@ class Section extends React.Component {
                 </SectionBody>
                 <Pagination cars={fetchedCarsData}/>
             </SectionContainer>
-
         );
     }
 }

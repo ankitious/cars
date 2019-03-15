@@ -32,6 +32,10 @@ export const DetailsLink = styled(Link)`
     color : #ea7f38;
     font-size: 14px;
     
+    &:hover {
+       text-decoration: underline;
+        color : #D37324;
+     }
      &:active {
       color : #D37324;
     }

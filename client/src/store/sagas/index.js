@@ -1,5 +1,5 @@
 import { takeLatest, call, put, fork, select } from 'redux-saga/effects';
-import {fetchCarsSuccess, fetchCarsFailure, fetchCarSuccess, fetchCarFailure} from '../store/actions';
+import {fetchCarsSuccess, fetchCarsFailure, fetchCarSuccess, fetchCarFailure} from '../actions/index';
 import { fetchCars } from '../api/fetchCars';
 import {
     CHANGE_PAGE,
@@ -7,19 +7,11 @@ import {
     FETCH_CARS_REQUEST,
     FILTER_CARS_BY_PARAMS,
     SORT_BY_MILEAGE
-} from '../store/actions/constants';
-import * as queryString from "query-string";
-import {compose} from "ramda";
-import {haveValues, removeNulls} from "../utility";
+} from '../actions/constants';
 import {fetchCar} from "../api/fetchCar";
+import {sanitizeParams} from "../../utility";
 
-const getParams = (state) => { console.log(state); return state.filterParams };
-
-const sanitizeParams = (params) => {
-    return(
-        haveValues(params) ?
-           compose(queryString.stringify,removeNulls)(params) : "");
-};
+export const getParams = (state) => state.filterParams;
 
 export function* getCars() {
     try {

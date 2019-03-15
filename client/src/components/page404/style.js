@@ -15,6 +15,10 @@ export const LinkToHomePage = styled(Link)`
    text-decoration : none;
    color : #EA7F28;
    
+    &:hover {
+       text-decoration: underline;
+        color : #D37324;
+     }
    &:active {
      color : #D37324;
    }

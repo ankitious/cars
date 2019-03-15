@@ -6,67 +6,52 @@ import {
     FILTER_CARS_BY_PARAMS, SORT_BY_MILEAGE
 } from "./constants";
 
-export function fetchCars() {
-    return {
+export const fetchCars = () => ({
         type: FETCH_CARS_REQUEST
-    }
-}
+});
 
-export function fetchCarsSuccess(cars) {
-    return {
+
+export const fetchCarsSuccess = (payload) => ({
         type: FETCH_CARS_SUCCESS,
-        cars,
-    }
-}
+        payload,
+});
 
-export function fetchCarsFailure(error) {
-    return {
+
+export const fetchCarsFailure = (error) => ({
         type: FETCH_CARS_FAILURE,
         error,
-    }
-}
+});
 
-export function fetchCar(stockNumber) {
-    return {
+
+export const fetchCar = (stockNumber) => ({
         type: FETCH_CAR_DETAIL_REQUEST,
         stockNumber
-    }
-}
+});
 
-export function fetchCarSuccess(car) {
-    return {
+export const fetchCarSuccess = (payload) => ({
         type: FETCH_CAR_DETAIL_SUCCESS,
-        car,
-    }
-}
+        payload,
+});
 
-export function fetchCarFailure(error) {
-    return {
+export const fetchCarFailure = (error) => ({
         type: FETCH_CAR_DETAIL_FAILURE,
         error,
-    }
-}
+});
 
-export function filterCarsByParams(color, manufacturer) {
-    return {
+export const filterCarsByParams = (color, manufacturer) => ({
         type: FILTER_CARS_BY_PARAMS,
         color,
         manufacturer,
-    }
-}
-export function changePage(page) {
-    return {
+});
+export const changePage = (page) =>  ({
         type: CHANGE_PAGE,
         page,
-    }
-}
+});
 
-export function sortByMileage(sort) {
-    return {
+export const sortByMileage = (sort) => ({
         type: SORT_BY_MILEAGE,
-        sort
-    }
-}
+        sort,
+});
 
 
 

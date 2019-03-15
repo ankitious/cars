@@ -1,4 +1,3 @@
-import {always, evolve} from 'ramda';
 import {FETCH_CARS_FAILURE, FETCH_CARS_REQUEST, FETCH_CARS_SUCCESS} from "../actions/constants";
 
 const initialState = {
@@ -8,29 +7,14 @@ const initialState = {
 };
 
 export default (state = initialState, action) => {
-    const { type, cars, error } = action;
+    const { type, payload, error } = action;
     switch (type) {
         case FETCH_CARS_REQUEST:
-            return evolve({
-                fetching : always(true),
-                },
-                state
-            );
+            return {...state, fetching : true};
         case FETCH_CARS_SUCCESS:
-            return evolve({
-                fetching : always(false),
-                cars : always(cars),
-                error : always(null)
-            },
-                state
-            );
+            return { ...state, fetching : false, cars : payload, error : null};
         case FETCH_CARS_FAILURE:
-            return evolve( {
-                    fetching : always(false),
-                    error : always(error)
-                },
-                state
-            );
+            return { ...state, fetching : false, error };
         default:
             return state;
     }

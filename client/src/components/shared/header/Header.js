@@ -9,12 +9,16 @@ import {
     PurchaseButton,
     SellButton
 } from "./style";
+import {Link} from "react-router-dom";
 
 const Header = () =>
     <HeaderContainer>
-        <LogoImageContainer to="/">
+        <Link
+            style ={{margin: '12px 24px'}}
+            to="/"
+        >
             <LogoImage src={logo} />
-        </LogoImageContainer>
+        </Link>
         <HeaderButtonsContainer>
             <PurchaseButton>Purchase</PurchaseButton>
             <MyOrdersButton>My Orders</MyOrdersButton>
